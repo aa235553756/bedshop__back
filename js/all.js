@@ -71,7 +71,48 @@ async function getOrders(){
 }
 
 function render(){
-    let str = ``
+    if(ordersData.length===0){
+        ordersData = [
+            {
+                "updatedAt": 1670830521,
+                "paid": false,
+                "id": "預設訂單",
+                "user": {
+                    "payment": "ATM",
+                    "tel": "123",
+                    "email": "aa235553756@gmail.com",
+                    "name": "name",
+                    "address": "local"
+                },
+                "quantity": 2,
+                "products": [
+                    {
+                        "description": "喬丹6尺雙人加大床頭片",
+                        "quantity": 1,
+                        "price": 9000,
+                        "category": "床架",
+                        "title": "Jordan 雙人床架／雙人加大",
+                        "origin_price": 12000,
+                        "id": "zeNaTsXgHrelq9sW9pJL",
+                        "images": "https://hexschool-api.s3.us-west-2.amazonaws.com/custom/Zr4h1Oqvc6NtAnpe5pNqJfGYyBJshAlKctfv0BTAZBqVAuvfSAWk4bcidBd8qBu1lRn5TWvib6O3UbmIAEt5w8SdB94GuFplZn6IM4SBvtxWJA2VnOqvQOsKungCPDXv.png"
+                    },
+                    {
+                        "origin_price": 5780,
+                        "images": "https://hexschool-api.s3.us-west-2.amazonaws.com/custom/dp6gW6u5hkUxxCuNi8RjbfgufygamNzdVHWb15lHZTxqZQs0gdDunQBS7F6M3MdegcQmKfLLoxHGgV3kYunUF37DNn6coPH6NqzZwRfhbsmEblpJQLqXLg4yCqUwP3IE.png",
+                        "category": "床架",
+                        "id": "gHGaOfXjfgH4lp6TaXhD",
+                        "title": "Louvre 單人床架",
+                        "quantity": 1,
+                        "description": "法式古典Louvre單人床架，經典百年手工浮雕工藝，床架宮廷式紡錘腳，與法式鄉村家具手工刷舊工藝，展現仿舊典雅質感～且床腳筆直設計，床架寬敞床底可收納儲物。",
+                        "price": 3780
+                    }
+                ],
+                "createdAt": 1670830521,
+                "total": 12780
+            }
+        ]
+    }
+    let str = ``;
     ordersData.map((item)=>{
         let timestamp = item.updatedAt;
         let date = new Date(timestamp * 1000);
